@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>课堂答疑智能体 | 信息采集技术</title>
+<link href="../shared/style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div id="particles-bg"></div>
+<div class="container full-height">
+<header class="header compact">
+<div class="logo-section">
+<div class="network-icon">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 12C8 9.79086 9.79086 8 12 8H36C38.2091 8 40 9.79086 40 12V28C40 30.2091 38.2091 32 36 32H20L12 40V32H12C9.79086 32 8 30.2091 8 28V12Z" stroke="currentColor" stroke-width="2"></path>
+<circle cx="18" cy="20" fill="currentColor" r="2"></circle>
+<circle cx="26" cy="20" fill="currentColor" r="2"></circle>
+<circle cx="34" cy="20" fill="currentColor" r="2"></circle>
+</svg>
+</div>
+<div class="title-section">
+<h1 class="main-title">课堂答疑智能体</h1>
+<p class="subtitle">信息采集技术 - 实时问答</p>
+</div>
+</div>
+<a class="nav-link" href="../index.html">
+<span>←</span>
+<span>返回主页</span>
+</a>
+</header>
+<div class="chat-container">
+<div class="chat-messages" id="chat-messages">
+<!-- 消息将在这里动态添加 -->
+</div>
+<div class="chat-input-area">
+<div class="chat-input-wrapper">
+<textarea class="chat-input" id="chat-input" placeholder="输入您的问题，例如：如何连接温湿度传感器？" rows="1"></textarea>
+<button class="send-btn" id="send-btn" title="发送">
+<span>→</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

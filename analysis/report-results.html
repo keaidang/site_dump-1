@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>实验报告收集智能体结果展示 | 智能教学平台</title>
+<link href="../shared/style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div id="particles-bg"></div>
+<div class="container full-height">
+<header class="header compact">
+<div class="logo-section">
+<div class="network-icon">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<rect height="32" rx="4" stroke="currentColor" stroke-width="2" width="28" x="10" y="8"></rect>
+<line stroke="currentColor" stroke-width="2" x1="16" x2="32" y1="18" y2="18"></line>
+<line stroke="currentColor" stroke-width="2" x1="16" x2="28" y1="26" y2="26"></line>
+</svg>
+</div>
+<div class="title-section">
+<h1 class="main-title">实验报告收集智能体结果展示</h1>
+<p class="subtitle">实验报告统计与高频问答展示</p>
+</div>
+</div>
+<a class="nav-link" href="index.html">
+<span>→</span>
+<span>返回数据分析</span>
+</a>
+</header>
+<section class="glass-card analysis-intro">
+<div>
+<h2 class="section-title">数据概览</h2>
+<p class="section-desc">本次实验报告收集已完成统计（来源：实验报告收集表）。</p>
+</div>
+<div class="metric-grid">
+<div class="metric-card">
+<span class="metric-label">收集批次</span>
+<span class="metric-value">001</span>
+</div>
+<div class="metric-card">
+<span class="metric-label">提交人数</span>
+<span class="metric-value">36</span>
+</div>
+<div class="metric-card">
+<span class="metric-label">完成率</span>
+<span class="metric-value">100%</span>
+</div>
+<div class="metric-card">
+<span class="metric-label">提交小组</span>
+<span class="metric-value">8 组</span>
+</div>
+<div class="metric-card">
+<span class="metric-label">全部正确</span>
+<span class="metric-value">6 组</span>
+</div>
+</div>
+</section>
+<section class="glass-card">
+<div class="analysis-panel-header">
+<h2 class="section-title">小组完成情况</h2>
+<span class="analysis-tag">8 组</span>
+</div>
+<p class="section-desc">其中 1、2、3、5、7、8 组完成表现优秀，所有题目均为成功选项。</p>
+<table class="data-table">
+<thead>
+<tr>
+<th>小组</th>
+<th>完成情况</th>
+<th>问题项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 组</td>
+<td><span class="status-pill ok">全部成功</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>第 2 组</td>
+<td><span class="status-pill ok">全部成功</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>第 3 组</td>
+<td><span class="status-pill ok">全部成功</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>第 4 组</td>
+<td><span class="status-pill fail">第 7 题输出验证失败</span></td>
+<td>第 7 题</td>
+</tr>
+<tr>
+<td>第 5 组</td>
+<td><span class="status-pill ok">全部成功</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>第 6 组</td>
+<td><span class="status-pill fail">第 7 题输出验证失败</span></td>
+<td>第 7 题</td>
+</tr>
+<tr>
+<td>第 7 组</td>
+<td><span class="status-pill ok">全部成功</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>第 8 组</td>
+<td><span class="status-pill ok">全题成功</span></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p class="analysis-note">第 7 题输出验证失败共 2 组（第 4、6 组）。</p>
+</section>
+<section class="glass-card">
+<div class="analysis-panel-header">
+<h2 class="section-title">思考与问答高频答案</h2>
+<span class="analysis-tag">Q1-Q3</span>
+</div>
+<p class="section-desc">从实验报告问答中提炼的高频答案。</p>
+<div class="qa-grid">
+<div class="qa-card">
+<p class="qa-card-title">Q1 高频答案</p>
+<p>串口波特率必须与程序设置一致，否则会出现乱码或无法解析输出。</p>
+</div>
+<div class="qa-card">
+<p class="qa-card-title">Q2 高频答案</p>
+<p>数据异常常见原因是接线错误、供电不稳、传感器未初始化或采样间隔过短。</p>
+</div>
+<div class="qa-card">
+<p class="qa-card-title">Q3 高频答案</p>
+<p>稳定供电、合理采样间隔、平均滤波与校准能提升数据稳定性与准确性。</p>
+</div>
+</div>
+</section>
+<section class="glass-card">
+<div class="analysis-panel-header">
+<h2 class="section-title">学情分析</h2>
+<span class="analysis-tag">结论</span>
+</div>
+<p class="section-desc">
+                实验报告整体完成度高，绝大多数组别能够正确完成传感器连接、程序写入与数据验证流程。第 4、6 组在第 7 题输出验证出现失败，
+                反映部分同学对环境变化验证与数据判断还不够稳定，建议结合现场演示开展“接线—串口—程序—数据”的逐步排查训练。
+                高频问答集中在波特率设置与数据异常排查，后续可通过示例代码与排查清单提升稳定性与规范性。
+            </p>
+</section>
+</div>
+</body>
+</html>

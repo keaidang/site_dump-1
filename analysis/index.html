@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>数据分析与查看 | 智能教学平台</title>
+<link href="../shared/style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div id="particles-bg"></div>
+<div class="container full-height">
+<header class="header compact">
+<div class="logo-section">
+<div class="network-icon">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<rect height="28" rx="4" stroke="currentColor" stroke-width="2" width="36" x="6" y="8"></rect>
+<line stroke="currentColor" stroke-width="2" x1="12" x2="20" y1="30" y2="22"></line>
+<line stroke="currentColor" stroke-width="2" x1="20" x2="28" y1="22" y2="26"></line>
+<line stroke="currentColor" stroke-width="2" x1="28" x2="36" y1="26" y2="16"></line>
+<circle cx="12" cy="30" fill="currentColor" r="2"></circle>
+<circle cx="20" cy="22" fill="currentColor" r="2"></circle>
+<circle cx="28" cy="26" fill="currentColor" r="2"></circle>
+<circle cx="36" cy="16" fill="currentColor" r="2"></circle>
+</svg>
+</div>
+<div class="title-section">
+<h1 class="main-title">数据分析与查看</h1>
+<p class="subtitle">信息采集技术 - 课前预习与实验报告结果展示</p>
+</div>
+</div>
+<a class="nav-link" href="../index.html">
+<span>→</span>
+<span>返回主页</span>
+</a>
+</header>
+<section class="glass-card analysis-intro">
+<div>
+<h2 class="section-title">数据总览入口</h2>
+<p class="section-desc">请输入访问密码以查看统计与展示内容。</p>
+</div>
+<form class="analysis-gate" id="analysis-gate">
+<input autocomplete="current-password" id="analysis-password" placeholder="输入访问密码" required="" type="password"/>
+<button class="primary-btn" type="submit">解锁查看</button>
+<p class="gate-hint" id="analysis-hint">仅授权人员可查看数据分析内容。</p>
+</form>
+</section>
+<section class="analysis-sections is-hidden" id="analysis-content">
+<a class="module-card" href="preview-results.html">
+<div class="module-card-header">
+<span class="module-icon">
+<svg fill="none" height="48" viewbox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+<circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2" style="color: var(--accent-color)"></circle>
+<path d="M16 26L22 30L32 18" stroke="currentColor" stroke-width="2" style="color: var(--accent-secondary)"></path>
+</svg>
+</span>
+<h2 class="module-title">课前预习智能体结果展示</h2>
+</div>
+<div class="module-card-body">
+<p class="module-desc">
+                        查看信息采集知识点掌握情况与思考题关键词展示。
+                    </p>
+<p class="module-status">→ 进入题目答案</p>
+</div>
+</a>
+<a class="module-card" href="report-results.html">
+<div class="module-card-header">
+<span class="module-icon">
+<svg fill="none" height="48" viewbox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+<rect height="32" rx="4" stroke="currentColor" stroke-width="2" style="color: var(--accent-color)" width="28" x="10" y="8"></rect>
+<line stroke="currentColor" stroke-width="2" style="color: var(--accent-color)" x1="16" x2="32" y1="18" y2="18"></line>
+<line stroke="currentColor" stroke-width="2" style="color: var(--accent-secondary)" x1="16" x2="28" y1="26" y2="26"></line>
+</svg>
+</span>
+<h2 class="module-title">实验报告收集智能体结果展示</h2>
+</div>
+<div class="module-card-body">
+<p class="module-desc">
+                        星空板与温湿度采集实验报告数据展示页（等待补充内容）。
+                    </p>
+<p class="module-status">→ 进入实验报告</p>
+</div>
+</a>
+</section>
+</div>
+<script>
+        const gate = document.getElementById('analysis-gate');
+        const input = document.getElementById('analysis-password');
+        const hint = document.getElementById('analysis-hint');
+        const content = document.getElementById('analysis-content');
+
+        gate.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const password = input.value.trim();
+
+            if (password === '111') {
+                content.classList.remove('is-hidden');
+                gate.classList.add('is-hidden');
+                hint.textContent = '';
+                input.value = '';
+                return;
+            }
+
+            hint.textContent = '密码错误，请重试。';
+            hint.classList.add('error');
+            input.select();
+        });
+    </script>
+</body>
+</html>

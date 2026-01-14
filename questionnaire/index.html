@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>实验报告 | 星空板与温湿度传感器数据采集</title>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div id="particles-bg"></div>
+<div class="container">
+<header class="header">
+<div class="logo-section">
+<div class="title-section">
+<h1 class="main-title">星空板与温湿度传感器数据采集</h1>
+<p class="subtitle">信息采集技术 实验报告</p>
+</div>
+</div>
+<a class="nav-link" href="../index.html" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(0,212,255,0.2); border-radius: 50px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-decoration: none;">
+<span>←</span>
+<span>返回主页</span>
+</a>
+</header>
+<form class="questionnaire-form" id="questionnaire-form">
+<section class="card student-info-card">
+<div class="card-header">
+<h2>学生信息</h2>
+</div>
+<div class="card-body">
+<div class="form-grid">
+<div class="form-group">
+<label for="studentName">姓名 <span class="required">*</span></label>
+<input id="studentName" name="studentName" placeholder="请输入姓名" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="studentId">学号 <span class="required">*</span></label>
+<input id="studentId" name="studentId" placeholder="请输入学号" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="groupNumber">小组 <span class="required">*</span></label>
+<input id="groupNumber" name="groupNumber" placeholder="请输入小组号" required="" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<section class="card objectives-card">
+<div class="card-header">
+<h2>任务目标</h2>
+</div>
+<div class="card-body">
+<ul class="objectives-list">
+<li>
+<span class="objective-number">1</span>
+<span>完成星空板与温湿度传感器的连接与供电，建立采集通路</span>
+</li>
+<li>
+<span class="objective-number">2</span>
+<span>通过串口调试读取温湿度数据，验证程序运行与输出正确性</span>
+</li>
+</ul>
+</div>
+</section>
+<section class="card steps-card">
+<div class="card-header">
+<h2>操作步骤与记录</h2>
+</div>
+<div class="card-body">
+<div class="steps-container">
+<div class="step-item" data-step="1">
+<div class="step-header">
+<span class="step-number">1</span>
+<span class="step-title">连接星空板与温湿度传感器（按引脚说明接线）</span>
+</div>
+<div class="step-content">
+<div class="screenshot-upload">
+<label>接线照片/示意图</label>
+<div class="upload-area" data-step="1">
+<input accept="image/*" hidden="" id="screenshot1" name="screenshot1" type="file"/>
+<div class="upload-placeholder">
+<span class="upload-icon">+</span>
+<span>点击上传截图或粘贴图片</span>
+</div>
+<img alt="预览" class="preview-image"/>
+</div>
+</div>
+<div class="success-toggle">
+<label>是否成功</label>
+<div class="toggle-buttons">
+<button class="toggle-btn success" data-value="success" type="button">✓
+                                            成功</button>
+<button class="toggle-btn fail" data-value="fail" type="button">✗ 失败</button>
+</div>
+<input name="step1_status" type="hidden" value=""/>
+</div>
+</div>
+</div>
+<div class="step-item" data-step="2">
+<div class="step-header">
+<span class="step-number">2</span>
+<span class="step-title">设置串口参数（端口与波特率）</span>
+</div>
+<div class="step-content">
+<div class="form-group">
+<label>串口端口</label>
+<input name="serial_port" placeholder="例如: COM3 / /dev/ttyUSB0" type="text"/>
+</div>
+<div class="form-group">
+<label>波特率</label>
+<input name="baud_rate" placeholder="例如: 9600" type="text"/>
+</div>
+<div class="success-toggle">
+<label>是否成功</label>
+<div class="toggle-buttons">
+<button class="toggle-btn success" data-value="success" type="button">✓
+                                            成功</button>
+<button class="toggle-btn fail" data-value="fail" type="button">✗ 失败</button>
+</div>
+<input name="step2_status" type="hidden" value=""/>
+</div>
+</div>
+</div>
+<div class="step-item" data-step="3">
+<div class="step-header">
+<span class="step-number">3</span>
+<span class="step-title">打开串口调试工具，确认是否有输出</span>
+</div>
+<div class="step-content">
+<div class="form-group">
+<label>串口输出记录</label>
+<textarea name="serial_output_initial" placeholder="请粘贴串口输出或描述当前情况" rows="3"></textarea>
+</div>
+<div class="success-toggle">
+<label>是否成功</label>
+<div class="toggle-buttons">
+<button class="toggle-btn success" data-value="success" type="button">✓
+                                            成功</button>
+<button class="toggle-btn fail" data-value="fail" type="button">✗ 失败</button>
+</div>
+<input name="step3_status" type="hidden" value=""/>
+</div>
+</div>
+</div>
+<div class="step-item" data-step="4">
+<div class="step-header">
+<span class="step-number">4</span>
+<span class="step-title">编写读取温湿度的程序（或修改模板）</span>
+</div>
+<div class="step-content">
+<div class="command-hint">
+<code>initSensor();</code>
+<code>Serial.begin(9600);</code>
+<code>readTemperature(); readHumidity();</code>
+</div>
+<div class="screenshot-upload">
+<label>代码截图/片段</label>
+<div class="upload-area" data-step="4">
+<input accept="image/*" hidden="" id="screenshot4" name="screenshot4" type="file"/>
+<div class="upload-placeholder">
+<span class="upload-icon">+</span>
+<span>点击上传截图或粘贴图片</span>
+</div>
+<img alt="预览" class="preview-image"/>
+</div>
+</div>
+<div class="success-toggle">
+<label>是否成功</label>
+<div class="toggle-buttons">
+<button class="toggle-btn success" data-value="success" type="button">✓
+                                            成功</button>
+<button class="toggle-btn fail" data-value="fail" type="button">✗ 失败</button>
+</div>
+<input name="step4_status" type="hidden" value=""/>
+</div>
+</div>
+</div>
+<div class="step-item" data-step="5">
+<div class="step-header">
+<span class="step-number">5</span>
+<span class="step-title">下载/写入程序到星空板</span>
+</div>
+<div class="step-content">
+<div class="screenshot-upload">
+<label>下载/写入截图</label>
+<div class="upload-area" data-step="5">
+<input accept="image/*" hidden="" id="screenshot5" name="screenshot5" type="file"/>
+<div class="upload-placeholder">
+<span class="upload-icon">+</span>
+<span>点击上传截图或粘贴图片</span>
+</div>
+<img alt="预览" class="preview-image"/>
+</div>
+</div>
+<div class="success-toggle">
+<label>是否成功</label>
+<div class="toggle-buttons">
+<button class="toggle-btn success" data-value="success" type="button">✓
+                                            成功</button>
+<button class="toggle-btn fail" data-value="fail" type="button">✗ 失败</button>
+</div>
+<input name="step5_status" type="hidden" value=""/>
+</div>
+</div>
+</div>
+<div class="step-item" data-step="6">
+<div class="step-header">
+<span class="step-number">6</span>
+<span class="step-title">运行程序，查看串口输出（温度/湿度）</span>
+</div>
+<div class="step-content">
+<div class="form-group">
+<label>串口输出（粘贴关键行）</label>
+<textarea name="serial_output" placeholder="请粘贴温度/湿度输出" rows="4"></textarea>
+</div>
+<div class="success-toggle">
+<label>是否成功</label>
+<div class="toggle-buttons">
+<button class="toggle-btn success" data-value="success" type="button">✓
+                                            成功</button>
+<button class="toggle-btn fail" data-value="fail" type="button">✗ 失败</button>
+</div>
+<input name="step6_status" type="hidden" value=""/>
+</div>
+</div>
+</div>
+<div class="step-item" data-step="7">
+<div class="step-header">
+<span class="step-number">7</span>
+<span class="step-title">验证输出是否正确（改变环境/对比实际）</span>
+</div>
+<div class="step-content">
+<div class="form-group">
+<label>温湿度变化对比描述</label>
+<textarea name="data_validation" placeholder="对比实际变化，描述输出变化..." rows="3"></textarea>
+</div>
+<div class="success-toggle">
+<label>是否成功</label>
+<div class="toggle-buttons">
+<button class="toggle-btn success" data-value="success" type="button">✓
+                                            成功</button>
+<button class="toggle-btn fail" data-value="fail" type="button">✗ 失败</button>
+</div>
+<input name="step7_status" type="hidden" value=""/>
+</div>
+</div>
+</div>
+<div class="step-item" data-step="8">
+<div class="step-header">
+<span class="step-number">8</span>
+<span class="step-title">异常排查记录（无输出/乱码/数值异常）</span>
+</div>
+<div class="step-content">
+<div class="form-group">
+<label>异常排查记录</label>
+<textarea name="troubleshooting_notes" placeholder="记录出现的问题与排查步骤..." rows="3"></textarea>
+</div>
+<div class="success-toggle">
+<label>是否成功</label>
+<div class="toggle-buttons">
+<button class="toggle-btn success" data-value="success" type="button">✓
+                                            成功</button>
+<button class="toggle-btn fail" data-value="fail" type="button">✗ 失败</button>
+</div>
+<input name="step8_status" type="hidden" value=""/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="card questions-card">
+<div class="card-header">
+<h2>思考与问答</h2>
+</div>
+<div class="card-body">
+<div class="question-item">
+<div class="question-number">Q1</div>
+<div class="question-content">
+<p class="question-text">为什么串口波特率必须与程序设置一致？</p>
+<textarea name="answer1" placeholder="请输入你的答案..." required="" rows="4"></textarea>
+</div>
+</div>
+<div class="question-item">
+<div class="question-number">Q2</div>
+<div class="question-content">
+<p class="question-text">如果温湿度数据一直不变化或显示异常，可能原因是什么？</p>
+<textarea name="answer2" placeholder="请输入你的答案..." required="" rows="4"></textarea>
+</div>
+</div>
+<div class="question-item">
+<div class="question-number">Q3</div>
+<div class="question-content">
+<p class="question-text">（拓展）你会用哪些方法提升采集数据的稳定性或准确性？</p>
+<textarea name="answer3" placeholder="请输入你的答案..." required="" rows="4"></textarea>
+</div>
+</div>
+</div>
+</section>
+<section class="card ai-tips-card">
+<div class="card-header">
+<h2>AI 助学提示</h2>
+</div>
+<div class="card-body">
+<div class="ai-tips">
+<div class="tip-item">
+<span class="tip-icon">·</span>
+<span>接线不确定？在教学平台输入："温湿度传感器怎么接线？"</span>
+</div>
+<div class="tip-item">
+<span class="tip-icon">·</span>
+<span>串口无输出或乱码？AI 可帮你排查波特率、端口与程序逻辑。</span>
+</div>
+</div>
+</div>
+</section>
+<div class="submit-section">
+<div class="auto-save-indicator">
+<span class="save-icon">●</span>
+<span class="save-text">自动保存中...</span>
+</div>
+<button class="submit-btn" type="submit">
+<span class="btn-text">提交实验报告</span>
+<span class="btn-icon">→</span>
+</button>
+</div>
+</form>
+</div>
+<div class="submit-overlay hidden" id="submit-overlay">
+<div class="overlay-content">
+<div class="loading-phase" id="loading-phase">
+<div class="loading-spinner">
+<div class="spinner-ring"></div>
+<div class="spinner-ring"></div>
+<div class="spinner-ring"></div>
+</div>
+<h2 class="loading-title">提交完成，正在分析...</h2>
+<p class="loading-subtitle">AI 正在评估您的实验报告</p>
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+<div class="analysis-steps">
+<div class="analysis-step" data-step="1">
+<span class="step-check">⏳</span>
+<span>检查操作步骤完整性</span>
+</div>
+<div class="analysis-step" data-step="2">
+<span class="step-check">⏳</span>
+<span>验证接线与程序正确性</span>
+</div>
+<div class="analysis-step" data-step="3">
+<span class="step-check">⏳</span>
+<span>评估问答质量</span>
+</div>
+<div class="analysis-step" data-step="4">
+<span class="step-check">⏳</span>
+<span>生成反馈报告</span>
+</div>
+</div>
+</div>
+<div class="success-phase hidden" id="success-phase">
+<div class="success-icon">✓</div>
+<h2 class="success-title">报告已上传至教师端</h2>
+<p class="success-subtitle">汇总中.....</p>
+<div class="submission-info">
+<div class="info-item">
+<span class="info-label">提交时间</span>
+<span class="info-value" id="submit-time"></span>
+</div>
+<div class="info-item">
+<span class="info-label">报告编号</span>
+<span class="info-value" id="submit-id"></span>
+</div>
+</div>
+<button class="close-btn" onclick="closeOverlay()" type="button">
+<span>完成</span>
+</button>
+</div>
+</div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
